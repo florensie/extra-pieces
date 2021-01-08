@@ -9,7 +9,7 @@ public class ExtraPiecesClient implements ClientModInitializer {
 
 	public void onInitializeClient() {
 		//try {
-		Artifice.registerAssets(ExtraPieces.getID("ep_assets"), assets -> {
+		Artifice.registerAssetPack(ExtraPieces.getID("ep_assets"), assets -> {
 			ModModels.init(assets);
 			assets.setDescription("Assets necessary for Extra Pieces.");
 		})/*.dumpResources(FabricLoader.getInstance().getConfigDirectory().getParent()+"/dump")*/;

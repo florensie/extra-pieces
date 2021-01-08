@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.4-SNAPSHOT'
+	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -17,6 +17,7 @@ repositories {
     maven { url "https://minecraft.curseforge.com/api/maven"}
 	jcenter()
 	maven { url "http://server.bbkr.space:8081/artifactory/libs-release/" }
+	maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -29,12 +30,12 @@ dependencies {
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Artifice
-	modImplementation "com.lettuce.fudge:artifice:${project.artifice_version}"
-	include "com.lettuce.fudge:artifice:${project.artifice_version}"
+	// FIXME: temporary lib from fork, change back when PR is merged: https://github.com/natanfudge/artifice/pull/25
+	//modImplementation include("com.lettuce.fudge:artifice:${project.artifice_version}")
+	modImplementation include("com.github.arthurbambou:artifice:1.16.2-pre1-SNAPSHOT")
 
 	// Jankson
-	modCompile "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
-	include "io.github.cottonmc:Jankson-Fabric:${project.jankson_version}"
+	modCompile include("io.github.cottonmc:Jankson-Fabric:${project.jankson_version}")
 	
 	// stuff for dev env
 	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
